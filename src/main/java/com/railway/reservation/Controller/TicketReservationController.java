@@ -18,17 +18,17 @@ public class TicketReservationController {
     }
 
     @PutMapping("/update/{ticketId}")
-    public Ticket updateTicket(@PathVariable String ticketId, @RequestBody Ticket ticket){
+    public Ticket updateTicket(@PathVariable int ticketId, @RequestBody Ticket ticket){
         return ticketReservationService.updateTicket(ticketId, ticket);
     }
 
     @DeleteMapping("/delete/{ticketId}")
-    public void deleteTicket(@PathVariable String ticketId){
+    public void deleteTicket(@PathVariable int ticketId){
         ticketReservationService.deleteTicket(ticketId);
     }
 
     @GetMapping("/get/{ticketId}")
-    public Ticket getTicket(@PathVariable String ticketId){
+    public Ticket getTicket(@PathVariable int ticketId){
         return ticketReservationService.getTicketByTicketId(ticketId);
     }
 

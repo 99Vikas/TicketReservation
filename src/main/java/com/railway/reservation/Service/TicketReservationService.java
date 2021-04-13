@@ -16,7 +16,7 @@ public class TicketReservationService {
         return ticketReservationRepository.save(ticket);
     }
 
-    public Ticket updateTicket(String ticketId, Ticket ticket){
+    public Ticket updateTicket(int ticketId, Ticket ticket){
         Optional<Ticket> ticketData = ticketReservationRepository.findByTicketId(ticketId);
         if(ticketData.isPresent()){
             ticketReservationRepository.save(ticket);
@@ -24,11 +24,11 @@ public class TicketReservationService {
         return ticket;
     }
 
-    public void deleteTicket(String ticketId){
+    public void deleteTicket(int ticketId){
         ticketReservationRepository.deleteByTicketId(ticketId);
     }
 
-    public Ticket getTicketByTicketId(String ticketId){
+    public Ticket getTicketByTicketId(int ticketId){
         Optional<Ticket> ticketData = ticketReservationRepository.findByTicketId(ticketId);
         return ticketData.orElse(null);
     }

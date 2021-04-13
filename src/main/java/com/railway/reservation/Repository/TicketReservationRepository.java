@@ -7,11 +7,11 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface TicketReservationRepository extends MongoRepository<Ticket, String> {
+public interface TicketReservationRepository extends MongoRepository<Ticket, Integer> {
 
-    public Optional<Ticket> findByTicketId(String ticketId);
+    public Optional<Ticket> findByTicketId(int ticketId);
 
-    public void deleteByTicketId(String ticketId);
+    public void deleteByTicketId(int ticketId);
 
     public void findTicketByPNR(String PNR);
 

@@ -19,7 +19,7 @@ import java.util.List;
 public class Ticket {
     @Id
     @Indexed
-    private String ticketId;
+    private int ticketId;
     private String PNR;
     private List<Passenger> passengers;
     private Boolean cancellable;
