@@ -1,4 +1,4 @@
-package com.railway.reservation.Model;
+package com.railway.ticketReservation.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

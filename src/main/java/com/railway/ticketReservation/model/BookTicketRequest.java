@@ -1,9 +1,10 @@
-package com.railway.reservation.Model;
+package com.railway.ticketReservation.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
 import java.util.HashMap;
 import java.util.List;
 

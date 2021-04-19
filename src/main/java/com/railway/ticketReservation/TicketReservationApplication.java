@@ -1,4 +1,4 @@
-package com.railway.reservation;
+package com.railway.ticketReservation;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,10 +8,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-@EnableSwagger2
-@EnableEurekaClient
 @SpringBootApplication
-public class ReservationApplication {
+@EnableEurekaClient
+@EnableSwagger2
+public class TicketReservationApplication {
 
     @Bean
     @LoadBalanced
@@ -20,9 +20,7 @@ public class ReservationApplication {
     }
 
     public static void main(String[] args) {
-
-        SpringApplication.run(ReservationApplication.class, args);
+        SpringApplication.run(TicketReservationApplication.class, args);
     }
-
 
 }

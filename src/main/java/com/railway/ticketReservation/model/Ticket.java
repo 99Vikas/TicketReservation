@@ -1,4 +1,4 @@
-package com.railway.reservation.Model;
+package com.railway.ticketReservation.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,8 +7,9 @@ import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.format.annotation.DateTimeFormat;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
 
@@ -17,6 +18,7 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
+//TODO add fare using baseFare from trip
 public class Ticket {
     @Id
     @Indexed
@@ -24,7 +26,8 @@ public class Ticket {
     private String PNR;
     private List<Passenger> passengers;
     private Boolean cancellable;
-    private Date journeyDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate journeyDate;
     private String userId;
     private String tripScheduleId;
     private HashMap<String, List<Integer>> seats;
