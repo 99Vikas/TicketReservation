@@ -25,9 +25,7 @@ public class TripSchedule {
     private int firstAcAvailableSeats;
     private int secondAcAvailableSeats;
     private int thirdAcAvailableSeats;
-    //TODO change FirstClassAcAvailableSeats to FirstClassAvailableSeats
     private int FirstClassAcAvailableSeats;
-    //TODO change chairCarAcAvailableSeats to chairCarAvailableSeats
     private int chairCarAcAvailableSeats;
     private int SleeperAvailableSeats;
     private String tripId;

@@ -1,5 +1,6 @@
 package com.railway.ticketReservation.service;
 
+import com.railway.ticketReservation.model.Fare;
 import com.railway.ticketReservation.model.Ticket;
 import com.railway.ticketReservation.repository.TicketsRepo;
 import org.springframework.beans.factory.annotation.Autowired;
