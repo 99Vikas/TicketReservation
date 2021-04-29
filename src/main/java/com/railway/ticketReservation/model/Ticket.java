@@ -33,6 +33,8 @@ public class Ticket {
     private String tripScheduleId;
     private HashMap<String, List<Integer>> seats;
     private String status;
+    private String fromStationCode;
+    private String toStationCode;
 
     @Override
     public String toString() {

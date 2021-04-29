@@ -181,6 +181,8 @@ public class TicketController {
             System.out.println(PNR);
             ticket.setPNR(PNR);
             ticket.setSeats(assignedSeats);
+            ticket.setFromStationCode(trip.getSourceStationCode());
+            ticket.setToStationCode(trip.getDestinationStationCode());
             ticket.setPassengers(bookTicketRequest.getPassengers());
             ticket.setStatus(bookedStatus);
             System.out.println(tripScheduleData);
@@ -256,5 +258,20 @@ public class TicketController {
         if (ticket.isPresent()){
             return ResponseEntity.ok(ticket.get());
         }else throw new TicketNotFoundException("Ticket with id " + id + " was not found");
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Ticket> deleteUser(@PathVariable String id) {
+        Optional<Ticket> tickets  = ticketsService.deleteTicket(id);
+        if (tickets.isPresent()) {
+            return ResponseEntity.ok(tickets.get());
+        } else throw new TicketNotFoundException("Ticket with pnr " + id + " was not found.");
+    }
+    @GetMapping("/getAll")
+    public ResponseEntity<List<Ticket>> getAllStations(){
+        Optional<List<Ticket>> trains = Optional.ofNullable(ticketsService.getAll());
+        if (trains.isPresent()){
+            return ResponseEntity.ok(trains.get());
+        }else throw new TicketNotFoundException("Stations not found.");
     }
 }

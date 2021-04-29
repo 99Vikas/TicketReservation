@@ -1,6 +1,5 @@
 package com.railway.ticketReservation.service;
 
-import com.railway.ticketReservation.model.Fare;
 import com.railway.ticketReservation.model.Ticket;
 import com.railway.ticketReservation.repository.TicketsRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,8 +26,9 @@ public class TicketsService {
         return Optional.empty();
     }
 
-    public void deleteTicket(String ticketId){
+    public Optional<Ticket> deleteTicket(String ticketId){
         ticketsRepo.deleteByTicketId(ticketId);
+        return Optional.empty();
     }
 
     public Optional<Ticket> getTicketByTicketId(String ticketId){
@@ -52,4 +52,7 @@ public class TicketsService {
         return ticketsRepo.findTicketByTripScheduleId(tripSchedule);
     }
 
+    public List<Ticket> getAll() {
+        return ticketsRepo.findAll();
+    }
 }

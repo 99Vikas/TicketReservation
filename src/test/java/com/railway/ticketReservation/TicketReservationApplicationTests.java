@@ -1,13 +1,52 @@
 package com.railway.ticketReservation;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-@SpringBootTest
-class TicketReservationApplicationTests {
+import java.util.Optional;
+
+import com.railway.ticketReservation.model.Ticket;
+import com.railway.ticketReservation.repository.TicketsRepo;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+
+@ExtendWith(SpringExtension.class)
+@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
+public class TicketReservationApplicationTests {
+
+    @Autowired
+    private TicketsRepo ticketsRepo;
 
     @Test
-    void contextLoads() {
+    @DisplayName("Test for finding ticket by id")
+    public void getByIdTest() {
+
+        String id = "60845ded521a70456c81aae4";
+
+        Optional<Ticket> testTicket = ticketsRepo.findByTicketId(id);
+
+        assertNotNull(testTicket);
     }
 
+    @Test
+    @DisplayName("Test for getting PNR in Ticket Booking")
+    public void getPNRTest() {
+        String pnr = "123520210415FAC-29";
+        Optional<Ticket> testPnr = ticketsRepo.getTicketByPNR(pnr);
+
+        assertNotNull(testPnr);
+    }
+
+    @Test
+    @DisplayName("Test for finding by pnr")
+    public void findByPNR() {
+        String pnr = "123520210415FAC-29";
+        Optional<Ticket> testPnr = ticketsRepo.findTicketByPNR(pnr);
+
+        assertNotNull(testPnr);
+    }
 }
